@@ -105,7 +105,7 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
-function articleMaker(articleObject) {
+function articleMaker(articleObj) {
   const articleWrapper = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
@@ -116,7 +116,7 @@ function articleMaker(articleObject) {
 
   articleWrapper.classList.add('article');
   articleDate.classList.add('date');
-  expandButton.classList.add('expandButton')
+  expandButton.classList.add('expandButton');
 
   articleWrapper.appendChild(articleTitle);
   articleWrapper.appendChild(articleDate);
@@ -125,18 +125,23 @@ function articleMaker(articleObject) {
   articleWrapper.appendChild(articleParagraphThree);
   articleWrapper.appendChild(expandButton);
 
-  articleTitle.textContent = articleObject.title;
-  articleDate.textContent = articleObject.date;
-  articleParagraphOne  = articleObject.firstParagraph;
-  articleParagraphTwo = articleObject.secondParagraph;
-  articleParagraphThree = articleObject.thirdParagraph;
+  articleTitle.textContent = articleObj.title;
+  articleDate.textContent = articleObj.date;
+  articleParagraphOne.textContent = articleObj.firstParagraph;
+  articleParagraphTwo.textContent = articleObj.secondParagraph;
+  articleParagraphThree.textContent = articleObj.thirdParagraph;
   expandButton.textContent = '+';
 
+
+
+
   expandButton.addEventListener('click', () => {
-    articleWrapper.classList.toggle('article-open')
+    articleWrapper.classList.toggle('article-open');
   })
+
   return articleWrapper;
-}
+
+} 
 data.forEach(article => {
   document.querySelector('div.articles').appendChild(articleMaker(article));
 })
